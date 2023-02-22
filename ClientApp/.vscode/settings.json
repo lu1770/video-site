@@ -1,0 +1,6 @@
+{
+    "todo-tree.filtering.excludeGlobs": [],
+    "files.watcherExclude": {
+        "**/node_modules/*/**": false
+    }
+}

@@ -1,0 +1,5 @@
+/bin/
+/ClientApp/dist/
+/ClientApp/node_modules/
+/obj/
+/ClientApp/dist-server/
