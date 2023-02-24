@@ -7,9 +7,7 @@ declare const WebRtcStreamer: any;
 export class AppComponent implements OnInit, OnChanges {
   title = 'app';
   rtsp_url: string;
-
-  constructor() {
-  }
+  videos = Array(20);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.rtsp_url) {
@@ -22,8 +20,17 @@ export class AppComponent implements OnInit, OnChanges {
   }
 
   private reload() {
-    const url = location.protocol + '//' + window.location.hostname + ':8000';
-    const webRtcServer = new WebRtcStreamer('video', url);
-    webRtcServer.connect(this.rtsp_url);
+    const rtsp_url = this.rtsp_url;
+    const id = 'video';
+    this.connect(id, rtsp_url);
   }
+
+
+  private connect(id, rtsp_url: string) {
+    const url = location.protocol + '//' + window.location.hostname + ':8000';
+
+    const webRtcServer = new WebRtcStreamer(id, url);
+    webRtcServer.connect(rtsp_url);
+  }
+
 }
